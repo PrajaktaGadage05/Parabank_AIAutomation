@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<title>Memory Consumption and Network Speed Report</title>
+<style>.thumbnail { max-width: 400px; }#memoryChart { max-width: 400px; max-height: 400px; }</style></head>
+<body style="background-color: #F5F5F5; color: #333;">
+<h1 style="color: #4CAF50;">Memory Consumption and Network Speed Report</h1>
+<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; border-color: #333; color: #333;">
+<tr><th colspan="2" style="background-color: #FF5722; color: #FFF;">Memory Consumption</th></tr>
+<tr><td>Memory Used Before</td><td>10763776 bytes</td></tr>
+<tr><td>Memory Used After</td><td>24728416 bytes</td></tr>
+<tr><td>Memory Consumption Difference</td><td>13964640 bytes</td></tr>
+</table>
+<br><table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; border-color: #333; color: #333;">
+<tr><th colspan="2" style="background-color: #FF5722; color: #FFF;">Network Speed</th></tr>
+<tr><td>Network Speed Before</td><td>0.037839215687520335 Mbps</td></tr>
+<tr><td>Network Speed After</td><td>0.06253642420614919 Mbps</td></tr>
+</table>
+<h2 style="background-color: #FF5722; color: #FFF;">Memory Usage Chart</h2>
+<canvas id="memoryChart"></canvas>
+<script>
+var ctx = document.getElementById('memoryChart').getContext('2d');
+var memoryChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Memory Before', 'Memory After'],
+        datasets: [{
+            label: 'Memory Consumption',
+            data: [10763776, 24728416],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.7)',
+                'rgba(75, 192, 192, 0.7)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(75, 192, 192, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        legend: {
+            position: 'top',
+            labels: {
+                fontColor: '#333'
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    fontColor: '#333'
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    fontColor: '#333'
+                }
+            }]
+        }
+    }
+});
+</script>
+</body>
+</html>

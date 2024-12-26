@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<h2>Memory Usage Graph</h2>
+<canvas id="memoryChart" width="400" height="200"></canvas>
+<script>
+var ctx = document.getElementById('memoryChart').getContext('2d');
+var memoryChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Used Memory', 'Free Memory'],
+        datasets: [{
+            label: 'Memory (bytes)',
+            data: [34405112, 4201841928],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+</body>
+</html>
